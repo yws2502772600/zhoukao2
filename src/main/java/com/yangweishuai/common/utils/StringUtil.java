@@ -10,51 +10,86 @@ import org.junit.Test;
  */
 public class StringUtil {
 	//方法1：判断源字符串是否有值，空引号(空白字符串)也算没值 (5分)
-	  public boolean hasLenth(String src) {
-		return false;
-		   
-		  
+	  public static boolean hasLenth(String src) {
+		  if(StringUtils.isWhitespace(src)) {
+	    	  return true;
+	      }else {
+	    	 return false;
+	      }	  
 	  }
 		@Test
 		public void test() {			  
-			   
+			boolean hasLenth = hasLenth("");
+			if(hasLenth==true) {
+				System.out.println("输入的为空值");
+			}else {
+				System.out.println("输入有值");
+			}
 		}
 		
 		
 	//方法2：判断源字符串是否有值，空引号(空白字符串)和空格也算没值 (5分)
 	  public boolean hasText(String src){
-		return false;
-		    //实现代码
-		}
+		  if(StringUtils.isAlphanumeric(src)) {
+	    	  return true;
+	      }else {
+	    	 return false;
+	      }	  
+	}
 	  
 		@Test
 		public void test2() {			  
-			   
+			boolean hasLenth = hasLenth("ab  c");
+			if(hasLenth==true) {
+				System.out.println("输入的为空值");
+			}else {
+				System.out.println("输入有值");
+			}
 		}
 		
 		
 		
 	//	方法3：判断是否为手机号码 (5分)
-		public boolean isMobile(String src){
-			return false;
-		    //实现代码
+		public static boolean isMobile(String src){
+			 String str="/[1-9],{/d,11}";
+			   if(str.equals(src)) {
+					return true;
+			   }else {
+				 return false;
+			   }
+		
 		}
 		
 		@Test
 		public void test3() {			  
-			   
+			  boolean mobile = isMobile("15100425849");
+			  if(mobile==true) {
+				  System.out.println("是手机号");
+			  }else {
+				  System.out.println("不是手机号");
+			  }
 		}
 		
 		
 		
 		//方法4：判断是否为邮箱 (5分)
 		public static boolean isEmail(String src){
-			return false;
+			 String str="/[1-9],{/d@,11}";
+			   if(str.equals(src)) {
+					return true;
+			   }else {
+				 return false;
+			   }
 		   
 		}
 		@Test
 		public void test4() {			  
-			   
+			  boolean email = isEmail("2502772600@qq.com");
+			  if(email==true) {
+				  System.out.println("是邮箱");
+			  }else {
+				  System.out.println("不是邮箱");
+			  }
 		}
 		
 		
